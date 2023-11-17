@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <div>
-      <h1>ESTO ES PARA QUE EL YO PRUEBE</h1>
+      <h1>ESTO ES PARA QUE YO TESTEE</h1>
     </div>
   );
 };
