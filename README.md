@@ -12,7 +12,7 @@ https://vercel.com/guides/how-do-i-use-a-vercel-api-access-token
 Env Variables and Modes
 https://vitejs.dev/guide/env-and-mode.html
 
-PASO A PASO:
+PASO A PASO :
 
 i.     CREAMOS EL PROYECTO DE REACT CON VITE
 ii.    INSTALAMOS LAS DEPENDENCIAS DE TESTING
