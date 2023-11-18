@@ -1,11 +1,11 @@
-// import { environment } from "@environments";
+import { RouterProvider } from "react-router-dom";
+import { AppRouter } from "./core/routes/app_router";
 
 const App = () => {
   return (
-    <div>
-      <h1>ESTO ES PARA QUE EL DESARROLLADOR TESTEE</h1>
-      {/* <h2>{environment.title}</h2> */}
-    </div>
+    <>
+      <RouterProvider router={AppRouter} />
+    </>
   );
 };
 
