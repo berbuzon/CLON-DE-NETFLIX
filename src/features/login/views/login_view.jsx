@@ -8,7 +8,7 @@ const LoginView = () => {
 
   return (
     <div>
-      <h1>Clon de Netflix</h1>
+      <h1>Login</h1>
       <button onClick={login}>Iniciar Sesión</button>
     </div>
   );
