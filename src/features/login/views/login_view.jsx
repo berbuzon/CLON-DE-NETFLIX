@@ -7,17 +7,21 @@ const LoginView = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //como obtengo los datos del formulario
-    const form = e.target;
-    const formData = new FormData(form);
-    const { email, password } = Object.fromEntries(formData);
-    // console.log(Object.fromEntries(formData));
+    try {
+      //como obtengo los datos del formulario
+      const form = e.target;
+      const formData = new FormData(form);
+      const { email, password } = Object.fromEntries(formData);
+      // console.log(Object.fromEntries(formData));
 
-    // Esto es lo mismo que lo de arriba
-    // const { email, password } = Object.fromEntries(new FormData(e.target));
-    // console.log(email, password);
+      // Esto es lo mismo que lo de arriba
+      // const { email, password } = Object.fromEntries(new FormData(e.target));
+      // console.log(email, password);
 
-    login(email, password);
+      login(email, password);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
