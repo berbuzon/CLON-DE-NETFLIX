@@ -3,6 +3,7 @@ import HomeView from "../../features/home/views/home_view";
 import LoginView from "../../features/login/views/login_view";
 import PrivateRoute from "../auth/components/private_route";
 import PublicRoute from "../auth/components/public_route";
+import NotFoundPage from "../../features/pages/not_found_page";
 
 export const appRouter = createBrowserRouter([
   {
@@ -22,4 +23,10 @@ export const appRouter = createBrowserRouter([
       </PublicRoute>
     ),
   },
+
+  {
+    path: "*",
+    element:<NotFoundPage />
+    
+  }
 ]);
