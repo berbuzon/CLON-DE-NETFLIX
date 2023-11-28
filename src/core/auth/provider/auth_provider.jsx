@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
 const response = await authApi.post("/login", {email, password,});
 
-console.log(response.data);
+// console.log(response.data);
 
     setIsLoggedIn(true);
     saveLoginState(true);
