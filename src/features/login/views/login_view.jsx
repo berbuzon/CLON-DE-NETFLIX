@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
 
 const LoginView = () => {
+  // const { login , isLoggedIn} = useAuth();
   const { login } = useAuth();
 
   const handleSubmit = (e) => {

@@ -4,8 +4,9 @@ import { AppStorage } from "../base/app_storage";
 import { authApi } from "../../datasource/remote/auth/auth_api";
 export const AUTH_KEY = "isLoggedIn";
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, fallback }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const saveLoginState = (state) => AppStorage.setItem(AUTH_KEY, state);
 
@@ -15,9 +16,16 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const initAuth = async () => {
-      const loginState = getLoginState();
-      if (!loginState) return;
-      setIsLoggedIn(loginState);
+      try {
+        const loginState = await getLoginState();
+        if (!loginState) return;
+
+        setIsLoggedIn(loginState);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     initAuth();
@@ -26,9 +34,9 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     //enviar datos al servidor
 
-const response = await authApi.post("/login", {email, password,});
+    const response = await authApi.post("/login", { email, password });
 
-console.log(response.data);
+    console.log(response.data);
 
     setIsLoggedIn(true);
     saveLoginState(true);
@@ -37,6 +45,8 @@ console.log(response.data);
     setIsLoggedIn(false);
     removeItem();
   };
+
+  if (fallback && isLoading) return fallback;
 
   return (
     <AuthContext.Provider
