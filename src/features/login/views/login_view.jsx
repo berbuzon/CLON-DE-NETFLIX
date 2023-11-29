@@ -16,11 +16,13 @@ const LoginView = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsLoggedIn(true);
+    setIsSubmitted(true);
 
     try {
       //como obtengo los datos del formulario
@@ -61,10 +63,7 @@ const LoginView = () => {
       }}
     >
       <h1 style={{ marginBottom: "20px" }}>CLON DE NETFLIX</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="formStyle"
-      >
+      <form onSubmit={handleSubmit} className="formStyle">
         <input
           type="email"
           name="email"
@@ -80,7 +79,8 @@ const LoginView = () => {
         <button type="submit" className="buttonStyle">
           Iniciar Sesión
         </button>
-        <p className="warning">{error}</p>
+
+        {isSubmitted && <p className="warning">{error}</p>}
       </form>
     </div>
   );
