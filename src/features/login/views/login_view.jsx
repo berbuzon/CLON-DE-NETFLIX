@@ -62,7 +62,7 @@ const LoginView = () => {
         color: "#fff",
       }}
     >
-      <h1 style={{ marginBottom: "20px" }}>CLON DE NETFLIX</h1>
+      <h1 className="titleStyle">CLON DE NETFLIX</h1>
       <form onSubmit={handleSubmit} className="formStyle">
         <input
           type="email"
