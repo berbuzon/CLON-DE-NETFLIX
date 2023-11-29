@@ -52,15 +52,7 @@ const LoginView = () => {
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        backgroundColor: "#141414",
-        color: "#fff",
-      }}
+      className="containerStyle"
     >
       <h1 className="titleStyle">CLON DE NETFLIX</h1>
       <form onSubmit={handleSubmit} className="formStyle">
