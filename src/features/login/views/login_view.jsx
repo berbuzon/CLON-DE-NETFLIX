@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
+import "./login_view.css";
 
-// class AuthError extends Error {
-//   constructor(message) {
-//     super(message);
-//     this.name = "AuthError";
-//   }
-// }
+// El resto de tu código de componente aquí
+class AuthError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AuthError";
+  }
+}
 
 const LoginView = () => {
   // const { login , isLoggedIn} = useAuth();
@@ -27,14 +29,14 @@ const LoginView = () => {
       const { email, password } = Object.fromEntries(formData);
       // console.log(Object.fromEntries(formData));
 
-      form.reset();
-
-      // if (!email || !password)
-      //   throw new AuthError("Todos los campos son requeridos");
-
       // Esto es lo mismo que lo de arriba
       // const { email, password } = Object.fromEntries(new FormData(e.target));
-      // console.log(email, password);
+      // console.log(email, password)
+
+      form.reset();
+
+      if (!email || !password)
+        throw new AuthError("Todos los campos son requeridos");
 
       await login(email, password);
     } catch (error) {
@@ -61,49 +63,24 @@ const LoginView = () => {
       <h1 style={{ marginBottom: "20px" }}>CLON DE NETFLIX</h1>
       <form
         onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          width: "300px",
-        }}
+        className="formStyle"
       >
         <input
           type="email"
           name="email"
-          style={{
-            padding: "10px",
-            borderRadius: "4px",
-            border: "none",
-            marginBottom: "10px",
-          }}
+          className="inputStyle"
           placeholder="Email"
         />
         <input
           type="password"
           name="password"
-          style={{
-            padding: "10px",
-            borderRadius: "4px",
-            border: "none",
-            marginBottom: "20px",
-          }}
+          className="inputStyle"
           placeholder="Password"
         />
-        <button
-          type="submit"
-          style={{
-            padding: "10px",
-            borderRadius: "4px",
-            border: "none",
-            backgroundColor: "#e50914",
-            color: "#fff",
-            cursor: "pointer",
-          }}
-        >
+        <button type="submit" className="buttonStyle">
           Iniciar Sesión
         </button>
-        <p>{error}</p>
+        <p className="warning">{error}</p>
       </form>
     </div>
   );

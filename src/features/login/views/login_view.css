@@ -1,0 +1,31 @@
+.formStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+.inputStyle {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.buttonStyle {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: #e50914;
+  color: #fff;
+  cursor: pointer;
+}
+
+.warning {
+  color: #ffffff;
+  background-color: #000000;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #e50914;
+  margin: 10px 0;
+  font-size: 1.1em;
+}
