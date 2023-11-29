@@ -59,12 +59,14 @@ const LoginView = () => {
       <form onSubmit={handleSubmit} className="formStyle">
         <input
           type="email"
+          id="email"
           name="email"
           className="inputStyle"
           placeholder="Email"
         />
         <input
           type="password"
+          id="password"
           name="password"
           className="inputStyle"
           placeholder="Password"

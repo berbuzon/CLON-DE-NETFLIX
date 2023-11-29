@@ -35,7 +35,7 @@ export const AuthProvider = ({ children, fallback }) => {
     //enviar datos al servidor
     await authApi.post("/login", { email, password });
 
-    // console.log(response.data);
+/*     console.log(response.data); */
 
     setIsLoggedIn(true);
     saveLoginState(true);
