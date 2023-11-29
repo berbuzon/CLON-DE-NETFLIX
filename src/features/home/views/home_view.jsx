@@ -6,11 +6,14 @@ const HomeView = () => {
   const { logout } = useAuth();
 
   const getUser = async () => {
-    try {
+
+    //saco el try catch porque lo manejo en el interceptor en auth_provider.jsx
+    // try {
       const response = await authApi.get("/user");
-    } catch (error) {
-      if (error.response.status === 401) return logout();
-    }
+    // } 
+    // catch (error) {
+    //   if (error.response.status === 401) return logout();
+    // }
   };
 
   return (

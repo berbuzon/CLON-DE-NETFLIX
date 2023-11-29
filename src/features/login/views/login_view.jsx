@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
+
+// class AuthError extends Error {
+//   constructor(message) {
+//     super(message);
+//     this.name = "AuthError";
+//   }
+// }
 
 const LoginView = () => {
   // const { login , isLoggedIn} = useAuth();
   const { login } = useAuth();
 
-  const handleSubmit = (e) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoggedIn(true);
 
     try {
       //como obtengo los datos del formulario
@@ -15,13 +27,22 @@ const LoginView = () => {
       const { email, password } = Object.fromEntries(formData);
       // console.log(Object.fromEntries(formData));
 
+      form.reset();
+
+      // if (!email || !password)
+      //   throw new AuthError("Todos los campos son requeridos");
+
       // Esto es lo mismo que lo de arriba
       // const { email, password } = Object.fromEntries(new FormData(e.target));
       // console.log(email, password);
 
-      login(email, password);
+      await login(email, password);
     } catch (error) {
+      if (error instanceof AuthError) return setError(error.message);
+      setError(error.response.data.msg);
       console.log(error);
+    } finally {
+      setIsLoggedIn(false);
     }
   };
 
@@ -82,6 +103,7 @@ const LoginView = () => {
         >
           Iniciar Sesión
         </button>
+        <p>{error}</p>
       </form>
     </div>
   );

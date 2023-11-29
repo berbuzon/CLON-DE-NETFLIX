@@ -33,10 +33,9 @@ export const AuthProvider = ({ children, fallback }) => {
 
   const login = async (email, password) => {
     //enviar datos al servidor
+    await authApi.post("/login", { email, password });
 
-    const response = await authApi.post("/login", { email, password });
-
-    console.log(response.data);
+    // console.log(response.data);
 
     setIsLoggedIn(true);
     saveLoginState(true);
@@ -45,6 +44,30 @@ export const AuthProvider = ({ children, fallback }) => {
     setIsLoggedIn(false);
     removeItem();
   };
+
+  useEffect(() => {
+    // ESTO OCURRE ANTES DE ENVIAR LA SOLICITUD AL SV
+    authApi.interceptors.request.use(
+      async (config) => {
+        // se puede hacer cualquier cosa con el objeto de la request antes de enviarlo al sv
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+
+    // ESTO OCURRE DESPUES DE RECIBIR LA SOLICITUD DEL SV
+    authApi.interceptors.response.use(
+      (response) => response,
+      async (error) => {
+        // se puede hacer cualquier cosa con el objeto del error de la response
+        if (error.response.status === 401) await logout();
+
+        return Promise.reject(error);
+      }
+    );
+  });
 
   if (fallback && isLoading) return fallback;
 
