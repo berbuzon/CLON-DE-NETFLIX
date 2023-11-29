@@ -5,7 +5,7 @@ import { authApi } from "../../datasource/remote/auth/auth_api";
 export const AUTH_KEY = "isLoggedIn";
 
 export const AuthProvider = ({ children, fallback }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   const saveLoginState = (state) => AppStorage.setItem(AUTH_KEY, state);
@@ -33,9 +33,9 @@ export const AuthProvider = ({ children, fallback }) => {
 
   const login = async (email, password) => {
     //enviar datos al servidor
-    await authApi.post("/login", { email, password });
+    /* await authApi.post("/login", { email, password }); */
 
-/*     console.log(response.data); */
+    /*     console.log(response.data); */
 
     setIsLoggedIn(true);
     saveLoginState(true);
