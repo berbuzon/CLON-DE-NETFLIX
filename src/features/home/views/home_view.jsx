@@ -16,6 +16,7 @@ const HomeView = () => {
     // }
   };
 
+  
   return (
     <div className="containerStyle">
       <h1 className="textStyle">HOME</h1>
