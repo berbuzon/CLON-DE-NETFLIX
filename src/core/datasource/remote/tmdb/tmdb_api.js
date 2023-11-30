@@ -1,5 +1,9 @@
 import axios from "axios";
 
+// instancia de axios para consumir la api de tmdb
+// da la base url y los parámetros que se van a enviar en cada solicitud
+// asi no lo repito en cada solicitud
+// también se le llama cliente http.
 export const tmdb_api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   params: {
@@ -8,6 +12,8 @@ export const tmdb_api = axios.create({
   },
 });
 
+// rutas de la api de tmdb
+// se usa para hacer las solicitudes a la api
 export const tmdb_paths = {
   movies: {
     popular: "/movie/popular",

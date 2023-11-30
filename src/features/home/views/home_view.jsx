@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import AppButton from "../../../core/components/app_button";
 import { AppSwiper } from "../../../core/components/app_swiper/app_swiper";
 import AppSwiperSlide from "../../../core/components/app_swiper/components/app_swiper_slide";
+import { getPopularMovies } from "../services/movies.services";
 
 const HomeView = () => {
+  getPopularMovies();
+
   return (
     <div>
       <h1>Películas mejor puntuadas</h1>
