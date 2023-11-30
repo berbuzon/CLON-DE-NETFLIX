@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { appRouter } from "./core/routes/app_router";
 import RootProvider from "./core/providers/root_provider/root_provider";
-import axios from "axios";
 
+//Swiper
+import { register as registeSwiper } from "swiper/element/bundle";
+
+registeSwiper();
 
 // El RootProvider es el proveedor general de la aplicación que contiene todos los providers de la aplicación
 // tiene como hijo al RootProvider
@@ -11,7 +13,7 @@ import axios from "axios";
 const App = () => {
   return (
     <>
-      <RootProvider> 
+      <RootProvider>
         <RouterProvider router={appRouter} />
       </RootProvider>
     </>
@@ -19,9 +21,6 @@ const App = () => {
 };
 
 export default App;
-
-
-
 
 // ESTUVE JUGANDO CON LOS INTERCEPTORES DE PETICIONES HTTP
 
