@@ -1,19 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../../../core/auth/hooks/useAuth";
-// import { authApi } from "../../../core/datasource/remote/auth/auth_api";
 import "./home_view.css";
-
-import axios from "axios";
-
-const TMDB_API = axios.create({
-  baseURL: "https://api.themoviedb.org/3/",
-  params: {
-    api_key: import.meta.env.VITE_TMDB_API_KEY,
-    language: "es-ES",
-  },
-});
-
-console.log(import.meta.env.VITE_TMDB_API_KEY);
 
 const HomeView = () => {
   const { logout } = useAuth();
