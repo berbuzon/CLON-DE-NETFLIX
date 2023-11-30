@@ -5,6 +5,9 @@ import PrivateRoute from "../../features/auth/components/private_route";
 import PublicRoute from "../../features/auth/components/public_route";
 import NotFoundPage from "../../features/pages/not_found_page";
 
+// Cuando visito la ruta "/", se renderiza el componente HomeView.
+// PrivateRoute redirige a los usuarios no autenticados a la página
+// de inicio de sesión.(HomeView)
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -15,6 +18,9 @@ export const appRouter = createBrowserRouter([
     ),
   },
 
+  // Cuando visito la ruta "/login", se renderiza el componente LoginView.
+  // PublicRoute redirige a los usuarios autenticados a otra página para evitar
+  // que accedan a la página de inicio de sesión.
   {
     path: "/login",
     element: (
@@ -26,7 +32,6 @@ export const appRouter = createBrowserRouter([
 
   {
     path: "*",
-    element:<NotFoundPage />
-    
-  }
+    element: <NotFoundPage />,
+  },
 ]);
