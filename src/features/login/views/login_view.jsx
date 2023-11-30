@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "../../../core/auth/hooks/useAuth";
+import { useAuth } from "../../../features/auth/base/hooks/useAuth";
 import "./login_view.css";
 
 // El resto de tu código de componente aquí

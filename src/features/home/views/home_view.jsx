@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "../../../core/auth/hooks/useAuth";
+import { useAuth } from "../../../features/auth/base/hooks/useAuth";
 import "./home_view.css";
 
 const HomeView = () => {

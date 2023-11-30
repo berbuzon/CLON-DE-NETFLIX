@@ -1,4 +1,4 @@
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../../../features/auth/base/hooks/useAuth";
 import { Navigate } from "react-router-dom";
 
 const PublicRoute = ({ children }) => {
