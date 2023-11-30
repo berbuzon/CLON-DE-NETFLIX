@@ -23,14 +23,23 @@ export const tmdbMoviesTvAdapter = (response) => {
   });
 };
 
-//hace una solicitud GET a la API de TMDB (The Movie Database)
-//para obtener las películas populares
+// estos son los servicios que se van a usar en el componente Home
+// para obtener las películas más populares, mejor valoradas y próximas
 
 export const getPopularMovies = async () => {
   const { data } = await tmdb_api.get(tmdb_paths.movies.popular);
 
-  const adapted = tmdbMoviesTvAdapter(data);
-  console.log("data", adapted);
-
-  return adapted;
+  return tmdbMoviesTvAdapter(data);
 };
+
+export const getTopRatedMovies = async () => {
+  const { data } = await tmdb_api.get(tmdb_paths.movies.top_rated);
+
+  return tmdbMoviesTvAdapter(data);
+};
+
+export const getUpcomingMovies = async () => {  
+  const { data } = await tmdb_api.get(tmdb_paths.movies.upcoming);
+
+  return tmdbMoviesTvAdapter(data);
+}
