@@ -5,11 +5,12 @@ import { useRef, useEffect } from "react";
 export const AppSwiper = ({children}) => {
   const swiperElRef = useRef(null);
 
+  //swiper-container es el contenedor de los slides
   return (
     <swiper-container
       ref={swiperElRef}
       loop
-      slides-per-view="5"
+      slides-per-view="3"
       navigation="true"
     >
     {children}
