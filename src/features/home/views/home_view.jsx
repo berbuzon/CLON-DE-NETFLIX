@@ -4,71 +4,33 @@ import { AppSwiper } from "../../../core/components/app_swiper/app_swiper";
 import AppSwiperSlide from "../../../core/components/app_swiper/components/app_swiper_slide";
 import { getPopularMovies } from "../services/movies.services";
 
+import useSWR from "swr";
+
 const HomeView = () => {
-  getPopularMovies();
+  const { data, error, isLoading } = useSWR(
+    "getPopularMovies",
+    getPopularMovies
+  );
+
+  console.log(data, error, isLoading);
 
   return (
     <div>
       <h1>Películas mejor puntuadas</h1>
       <AppSwiper>
-        {Array.from({ length: 10 }).map((item, index) => (
+        {data?.map((e, index) => (
           <AppSwiperSlide key={index}>
             <div
               style={{
-                height: "100px",
-                width: "140px",
-                backgroundColor: "red",
+                height: "150px",
+                width: "250px",
+                backgroundImage:`url(${e.backdrop})`,
+                backgroundSize:'contain',
+                backgroundRepeat:'no-repeat',
+                backgroundPosition:'center'
               }}
             >
-              <h3>{index}</h3>
-            </div>
-          </AppSwiperSlide>
-        ))}
-      </AppSwiper>
-      <h1>Películas mejor puntuadas</h1>
-      <AppSwiper>
-        {Array.from({ length: 10 }).map((item, index) => (
-          <AppSwiperSlide key={index}>
-            <div
-              style={{
-                height: "100px",
-                width: "140px",
-                backgroundColor: "red",
-              }}
-            >
-              <h3>{index}</h3>
-            </div>
-          </AppSwiperSlide>
-        ))}
-      </AppSwiper>
-      <h1>Películas mejor puntuadas</h1>
-      <AppSwiper>
-        {Array.from({ length: 10 }).map((item, index) => (
-          <AppSwiperSlide key={index}>
-            <div
-              style={{
-                height: "100px",
-                width: "140px",
-                backgroundColor: "red",
-              }}
-            >
-              <h3>{index}</h3>
-            </div>
-          </AppSwiperSlide>
-        ))}
-      </AppSwiper>
-      <h1>Películas mejor puntuadas</h1>
-      <AppSwiper>
-        {Array.from({ length: 10 }).map((item, index) => (
-          <AppSwiperSlide key={index}>
-            <div
-              style={{
-                height: "100px",
-                width: "140px",
-                backgroundColor: "red",
-              }}
-            >
-              <h3>{index}</h3>
+              <h3>{e.title}</h3>
             </div>
           </AppSwiperSlide>
         ))}
