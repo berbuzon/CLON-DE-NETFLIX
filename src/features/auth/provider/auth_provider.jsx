@@ -6,7 +6,8 @@ export const AUTH_KEY = "isLoggedIn";
 
 export const AuthProvider = ({ children, fallback }) => {
   // isLoggedIn indica si el usuario está logueado o no.
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ 
 
   // isLoading indica si se está cargando algo.
   const [isLoading, setIsLoading] = useState(true);
@@ -80,6 +81,18 @@ export const AuthProvider = ({ children, fallback }) => {
       }
     );
   });
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      localStorage.clear();
+    });
+  
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        localStorage.clear();
+      });
+    };
+  }, []);
 
   // fallback es un componente que se muestra cuando isLoading es true.
   // Podría ser, por ejemplo, un componente de carga o un mensaje de "Cargando...".
