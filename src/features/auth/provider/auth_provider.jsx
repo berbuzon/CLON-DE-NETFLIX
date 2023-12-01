@@ -84,6 +84,17 @@ export const AuthProvider = ({ children, fallback }) => {
 
 
   // LIMPIAR LOCALSTORAGE AL CERRAR LA PESTAÑA
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      localStorage.clear();
+    });
+  
+    return () => {
+      window.removeEventListener('beforeunload', () => {
+        localStorage.clear();
+      });
+    };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('beforeunload', () => {

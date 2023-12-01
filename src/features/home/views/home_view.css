@@ -1,0 +1,59 @@
+.containerStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #141414;
+  color: #fff;
+}
+
+.titleStyle {
+  margin-bottom: 9%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 3em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.buttonStyle {
+  padding: 14px 24px;
+  border-radius: 2px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 10px;
+  transition: background-color 0.5s ease;
+}
+
+.buttonStyle:hover {
+  opacity: 0.85;
+}
+
+.buttonStyle.primary {
+  background-color: #e50914; /* color primario de Netflix */
+}
+
+.buttonStyle.primary:hover {
+  background-color: #f6121d;
+}
+
+.buttonStyle.secondary {
+  background-color: #6c757d; /* color secundario */
+}
+
+.buttonStyle.secondary:hover {
+  background-color: #7d868e;
+}
+
+.buttonStyle.tertiary {
+  background-color: #b9090b; /* color terciario similar al de Netflix */
+}
+
+.buttonStyle.tertiary:hover {
+  background-color: #c9191f;
+}
