@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import AppCarouselSection from "../../../core/components/app_carousel_section/app_carousel_section";
-import AppButton from "../../../core/components/app_button";
 import { AppSwiper } from "../../../core/components/app_swiper/app_swiper";
 import AppSwiperSlide from "../../../core/components/app_swiper/components/app_swiper_slide";
-import { getPopularMovies } from "../services/movies.services";
-import { getTopRatedMovies } from "../services/movies.services";
-import { getUpcomingMovies } from "../services/movies.services";
+import {
+  getPopularMovies,
+  getTopRatedMovies,
+  getUpcomingMovies,
+} from "../services/movies.services";
+import {
+  getPopularTV,
+  getTopRatedTV,
+  getUpcomingTV,
+} from "../services/tv.services";
 
 import useSWR from "swr";
 
@@ -28,9 +34,32 @@ const HomeView = () => {
     isLoading: UpcomingMoviesIsLoading,
   } = useSWR("getUpcomingMovies", getUpcomingMovies);
 
+  const {
+    data: popularTv,
+    error: popularTvError,
+    isLoading: popularTvIsLoading,
+  } = useSWR("getPopularTV", getPopularTV);
+
+  const {
+    data: topRatedTv,
+    error: topRatedTvError,
+    isLoading: topRatedTvIsLoading,
+  } = useSWR("getTopRatedTV", getTopRatedTV);
+
+  const {
+    data: UpcomingTv,
+    error: UpcomingTvError,
+    isLoading: UpcomingTvIsLoading,
+  } = useSWR("getUpcomingTV", getUpcomingTV);
+
   return (
     <div>
       <AppCarouselSection title={"Popular Movies"} data={popularMovies} />
+      <AppCarouselSection title={"Top Rated Movies"} data={topRatedMovies} />
+      <AppCarouselSection title={"Upcoming Movies"} data={UpcomingMovies} />
+      <AppCarouselSection title={"Popular Movies"} data={popularTv} />
+      <AppCarouselSection title={"Top rated TV"} data={topRatedTv} />
+      <AppCarouselSection title={"Upcoming TV"} data={UpcomingTv} />
     </div>
   );
 };
