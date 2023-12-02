@@ -1,40 +1,36 @@
 import React, { useState } from "react";
+import AppCarouselSection from "../../../core/components/app_carousel_section/app_carousel_section";
 import AppButton from "../../../core/components/app_button";
 import { AppSwiper } from "../../../core/components/app_swiper/app_swiper";
 import AppSwiperSlide from "../../../core/components/app_swiper/components/app_swiper_slide";
 import { getPopularMovies } from "../services/movies.services";
+import { getTopRatedMovies } from "../services/movies.services";
+import { getUpcomingMovies } from "../services/movies.services";
 
 import useSWR from "swr";
 
 const HomeView = () => {
-  const { data, error, isLoading } = useSWR(
-    "getPopularMovies",
-    getPopularMovies
-  );
+  const {
+    data: popularMovies,
+    error: popularMoviesError,
+    isLoading: popularMoviesIsLoading,
+  } = useSWR("getPopularMovies", getPopularMovies);
 
-  console.log(data, error, isLoading);
+  const {
+    data: topRatedMovies,
+    error: topRatedMoviesError,
+    isLoading: topRatedMoviesIsLoading,
+  } = useSWR("getTopRatedMovies", getTopRatedMovies);
+
+  const {
+    data: UpcomingMovies,
+    error: UpcomingMoviesError,
+    isLoading: UpcomingMoviesIsLoading,
+  } = useSWR("getUpcomingMovies", getUpcomingMovies);
 
   return (
     <div>
-      <h1>Películas mejor puntuadas</h1>
-      <AppSwiper>
-        {data?.map((e, index) => (
-          <AppSwiperSlide key={index}>
-            <div
-              style={{
-                height: "150px",
-                width: "250px",
-                backgroundImage:`url(${e.backdrop})`,
-                backgroundSize:'contain',
-                backgroundRepeat:'no-repeat',
-                backgroundPosition:'center'
-              }}
-            >
-              <h3>{e.title}</h3>
-            </div>
-          </AppSwiperSlide>
-        ))}
-      </AppSwiper>
+      <AppCarouselSection title={"Popular Movies"} data={popularMovies} />
     </div>
   );
 };

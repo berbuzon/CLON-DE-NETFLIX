@@ -20,4 +20,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  
+}
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color:white;
 }
