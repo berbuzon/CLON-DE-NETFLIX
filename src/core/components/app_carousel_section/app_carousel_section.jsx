@@ -2,7 +2,7 @@ import React from "react";
 import { AppSwiper } from "../app_swiper/app_swiper";
 import AppSwiperSlide from "../app_swiper/components/app_swiper_slide";
 
-export const AppCarouselSection = ({title,data}) => {
+export const AppCarouselSection = ({ title, data }) => {
   return (
     <>
       <h1>{title}</h1>
@@ -30,4 +30,3 @@ export const AppCarouselSection = ({title,data}) => {
 };
 
 export default AppCarouselSection;
-
