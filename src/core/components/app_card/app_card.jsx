@@ -2,7 +2,7 @@ import Header from "./components/header";
 import Body from "./components/body";
 import Footer from "./components/footer";
 import { Provider } from "./provider/card_context";
-import useHover from "../../hooks/useHover";
+import useHover from "../../components/hooks/useHover"
 
 const AppCard = ({
   children,
@@ -51,7 +51,7 @@ const AppCard = ({
               zIndex: "-1",
             }}
             src={backgroundImageSrc}
-            alt="imagen de una peli"
+            alt= "background"
           />
         )}
 
@@ -64,5 +64,6 @@ const AppCard = ({
 AppCard.Header = Header;
 AppCard.Body = Body;
 AppCard.Footer = Footer;
+
 
 export default AppCard;

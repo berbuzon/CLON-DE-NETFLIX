@@ -14,6 +14,7 @@ import {
 } from "../services/tv.services";
 
 import useSWR from "swr";
+import AppCard from "../../../core/components/app_card/app_card";
 
 const HomeView = () => {
   const {
@@ -60,6 +61,8 @@ const HomeView = () => {
       <AppCarouselSection title={"Popular Movies"} data={popularTv} />
       <AppCarouselSection title={"Top rated TV"} data={topRatedTv} />
       <AppCarouselSection title={"Upcoming TV"} data={UpcomingTv} />
+
+
     </div>
   );
 };
