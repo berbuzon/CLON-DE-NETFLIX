@@ -21,7 +21,7 @@ export const AppCarouselSection = ({ title, data }) => {
               <AppCard.Header>
                 <AppTitle size={sizes.sm}>{e.title}</AppTitle>
               </AppCard.Header>
-              <AppCard.Footer>Footer</AppCard.Footer>
+              <AppCard.Footer>{e.rating}</AppCard.Footer>
             </AppCard>
           </AppSwiperSlide>
         ))}
