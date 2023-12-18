@@ -58,7 +58,7 @@ const HomeView = () => {
       <AppCarouselSection title={"Popular Movies"} data={popularMovies} />
       <AppCarouselSection title={"Top Rated Movies"} data={topRatedMovies} />
       <AppCarouselSection title={"Upcoming Movies"} data={UpcomingMovies} />
-      <AppCarouselSection title={"Popular Movies"} data={popularTv} />
+      <AppCarouselSection title={"Popular TV"} data={popularTv} />
       <AppCarouselSection title={"Top rated TV"} data={topRatedTv} />
       <AppCarouselSection title={"Upcoming TV"} data={UpcomingTv} />
 
