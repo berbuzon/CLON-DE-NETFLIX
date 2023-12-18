@@ -3,6 +3,7 @@ import { AppSwiper } from "../app_swiper/app_swiper";
 import AppSwiperSlide from "../app_swiper/components/app_swiper_slide";
 import AppCard from "../app_card/app_card";
 import AppTitle from "../app_title/app_title";
+import AppFooter from "../app_card/app_footer/app_footer";
 import { sizes } from "../constants";
 import AppFooter from "../app_footer/app_footer";
 
@@ -23,9 +24,15 @@ export const AppCarouselSection = ({ title, data }) => {
                 <AppTitle size={sizes.sm}>{e.title}</AppTitle>
               </AppCard.Header>
               <AppCard.Footer>
+<<<<<<< HEAD
                 <AppFooter>{e.rating}</AppFooter>
               </AppCard.Footer>
             </AppCard>
+=======
+              <AppFooter >{e.rating}</AppFooter>
+              </AppCard.Footer>
+              </AppCard>
+>>>>>>> b683e9f1aa9af1cd6a47e6dfd29bbbc7356c80ef
           </AppSwiperSlide>
         ))}
       </AppSwiper>
