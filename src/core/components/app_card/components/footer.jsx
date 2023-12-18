@@ -7,7 +7,6 @@ const Footer = ({ children, ...props }) => {
     <section
       {...props}
       style={{
-        padding: "10px",
         borderBottom: "1px solid #ccc",
         backdropFilter: "blur(4px)",
         opacity: isHovered ? "1" : "0",
@@ -22,3 +21,4 @@ const Footer = ({ children, ...props }) => {
 };
 
 export default Footer;
+
